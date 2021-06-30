@@ -30,10 +30,13 @@ DEBUG = int(os.environ.get("DEBUG", default=0))
 
 # 'DJANGO_ALLOWED_HOSTS' должен быть в виде одной строки с хостами разделенными символом пробела
 # Для примера: 'DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]'
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
+ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 # Application definition
 
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
