@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  blog:
+    build: .
+    image: blog:loc
+    container_name: blog
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - 8001:8000
+    networks:
+      - qborder_backend      
+    env_file:
+      - ./.env.dev
+
+networks:  
+  qborder_backend:  
+    external: true
+    
